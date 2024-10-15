@@ -7,7 +7,7 @@
     <h1>Accesso a pagina riservata</h1>
     <p>Accesso consentito solo agli utenti registrati</p>
 
-    <form action="accesso.php" method="GET">
+    <form action="accesso_get.php" method="GET">
 
         <label for="username">Username:</label>
         <input type="text" name="username" id="username">
