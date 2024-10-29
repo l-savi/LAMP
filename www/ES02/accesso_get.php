@@ -4,9 +4,9 @@ $password = $_GET['password'];
 
 
 if($username=="Leo" && $password=="21") {
-  $msg = "Credenziali sbagliate";
+  $msg =  "Benvenuto\a $username nella pagina riservata del mio sito!";
 } else {
-  $msg = "Benvenuto\a $username nella pagina riservata del mio sito!";
+  $msg = "Credenziali Sbagliate";
 }
 ?>
 
