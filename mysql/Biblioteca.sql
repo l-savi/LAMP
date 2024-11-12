@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS libri (
 -- Inserire alcuni dati nella tabella dei libri
 INSERT INTO libri (titolo, id_autore, id_categoria, anno_pubblicazione)
 VALUES
-    ('1984', 2, 3, 1949),
     ('Orgoglio e pregiudizio', 1, 1, 1813),
+    ('1984', 2, 3, 1949),
     ('Il buio oltre la siepe', 3, 1, 1960),
     ('Guerra e pace', 1, 1, 1869);
 
