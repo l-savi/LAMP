@@ -21,40 +21,43 @@ VALUES
 -- Verifico il corretto inserimento dei dati
 SELECT * FROM autori;
 
--- Creare un nuovo database
-CREATE DATABASE IF NOT EXISTS videoteca;
-USE videoteca;
-
--- Creare la tabella dei film
-CREATE TABLE IF NOT EXISTS film (
-    id_film INT AUTO_INCREMENT PRIMARY KEY,
-    titolo VARCHAR(100) NOT NULL,
-    anno_uscita YEAR,
-    durata_minuti INT,
-    genere VARCHAR (100),
-    id_regista INT,
-    FOREIGN KEY (id_regista) REFERENCES regista(id_regista)
+-- Creare la tabella delle categorie
+CREATE TABLE IF NOT EXISTS categorie (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nome_categoria VARCHAR(50) NOT NULL
 );
 
--- Inserire alcuni dati nella tabella dei film
-INSERT INTO film (titolo, anno_uscita, durata_minuti, id_regista)
-VALUES 
-  ('1984','1984','110','sci-fi',1),
-  ('titanic','1997','194','romantico',2),
-  ('la carica dei 101','1961','79','per famiglie',3),
-  ('peter pan','1953','76','per famiglie',4),
-  ('nemo','2003','100','per famiglie',5),
-
--- Creare la tabella degli autori
-CREATE TABLE IF NOT EXISTS autori (
-    id_autore INT AUTO_INCREMENT PRIMARY KEY,
-    nome_autore VARCHAR(50) NOT NULL,
-    nazionalita VARCHAR(50),
-    data_nascita DATE,
-    data_morte DATE
-);
-
--- Inserire alcuni dati nella tabella degli autori  
-INSERT INTO autori (nome_autore, nazionalita, data_nascita, data_morte)
+-- Inserire alcuni dati nella tabella delle categorie
+INSERT INTO categorie (nome_categoria)
 VALUES
-('George Orwell', 'Inglese', '1903-06-25', '1950-01-21'),
+    ('Romanzo'),
+    ('Saggio'),
+    ('Fantascienza'),
+    ('Mistero');
+
+-- Verifico il corretto inserimento dei dati
+SELECT * FROM categorie ;
+
+-- Creare la tabella dei libri
+CREATE TABLE IF NOT EXISTS libri (
+    id_libro INT AUTO_INCREMENT PRIMARY KEY,
+    titolo VARCHAR(100) NOT NULL,
+    id_autore INT,
+    id_categoria INT,
+    anno_pubblicazione INT,
+    FOREIGN KEY (id_autore) REFERENCES autori(id_autore),
+    FOREIGN KEY (id_categoria) REFERENCES categorie(id_categoria)
+);
+
+-- Inserire alcuni dati nella tabella dei libri
+INSERT INTO libri (titolo, id_autore, id_categoria, anno_pubblicazione)
+VALUES
+    ('1984', 2, 3, 1949),
+    ('Orgoglio e pregiudizio', 1, 1, 1813),
+    ('Il buio oltre la siepe', 3, 1, 1960),
+    ('Guerra e pace', 1, 1, 1869);
+
+-- Verifico il corretto inserimento dei dati
+SELECT * FROM libri;
+
+SHOW TABLES;
