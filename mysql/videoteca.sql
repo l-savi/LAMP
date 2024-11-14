@@ -5,7 +5,7 @@ USE videoteca;
 
 
 
-CREATE TABLE IF NOT EXISTS videocassette (
+CREATE TABLE IF NOT EXISTS film (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     titolo VARCHAR(100) NOT NULL,   
     data_pubblicazione DATE NOT NULL,
@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS cliente (
 CREATE TABLE IF NOT EXISTS noleggio (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_cliente INT(11) NOT NULL,
-    id_videocassette INT(11) NOT NULL,
-    FOREIGN KEY (id_videocassette) REFERENCES videocassette(id)
+    id_film INT(11) NOT NULL,
+    FOREIGN KEY (id_film) REFERENCES film(id)
     FOREIGN KEY (id_cliente) REFERENCES cliente(codice_fiscale)
 );
 
@@ -35,12 +35,12 @@ CREATE TABLE IF NOT EXISTS attori (
     ruolo VARCHAR(100) NOT NULL
 ); 
 
-CREATE TABLE IF NOT EXISTS attori_videocassette (
+CREATE TABLE IF NOT EXISTS attori_film (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_attore INT(11) NOT NULL,
-    id_videocassetta INT(11) NOT NULL,
+    id_film INT(11) NOT NULL,
     FOREIGN KEY (id_attore) REFERENCES attori(id),
-    FOREIGN KEY (id_videocassetta) REFERENCES videocassetta(id)
+    FOREIGN KEY (id_film) REFERENCES film(id)
 ) ;
 
 CREATE TABLE IF NOT EXISTS regista(
@@ -50,12 +50,12 @@ CREATE TABLE IF NOT EXISTS regista(
     data_nascita DATE NOT NULL
 ) ;
 
-CREATE TABLE IF NOT EXISTS regista_videocassette(
+CREATE TABLE IF NOT EXISTS regista_film(
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_regista INT(11) NOT NULL,
-    id_videocassette INT(11) NOT NULL,
+    id_film INT(11) NOT NULL,
     FOREIGN KEY (id_regista) REFERENCES regista(codice_fiscale),
-    FOREIGN KEY (id_videocassette) REFERENCES videocassette(id)
+    FOREIGN KEY (id_film) REFERENCES film(id)
 ) ;
 
 CREATE TABLE IF NOT EXISTS genere(
@@ -63,10 +63,10 @@ CREATE TABLE IF NOT EXISTS genere(
     nome VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS genere_videocassette(
+CREATE TABLE IF NOT EXISTS genere_film(
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     id_genere INT(11) NOT NULL,
-    id_videocassette INT(11) NOT NULL,
+    id_film INT(11) NOT NULL,
     FOREIGN KEY (id_genere) REFERENCES genere(id),
-    FOREIGN KEY (id_videocassette) REFERENCES videocassette(id)
+    FOREIGN KEY (id_film) REFERENCES film(id)
 );
