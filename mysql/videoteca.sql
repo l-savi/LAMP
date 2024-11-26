@@ -1,4 +1,4 @@
-mysql -u root
+
 
 CREATE DATABASE IF NOT EXISTS videoteca;
 USE videoteca;
