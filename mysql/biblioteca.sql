@@ -1,20 +1,20 @@
 CREATE DATABASE IF NOT EXISTS biblioteca;
 USE biblioteca;
+
+--Creare la tabella delle nazionalita
+CREATE TABLE IF NOT EXISTS nazionalita (
+id_nazionalita INT AUTO_INCREMENT PRIMARY KEY,
+nome_nazionalita VARCHAR (50) NOT NULL
+);
 -- Creare la tabella degli autori
 CREATE TABLE IF NOT EXISTS autori (
     id_autore INT AUTO_INCREMENT PRIMARY KEY,
     nome_autore VARCHAR(50) NOT NULL,
     nazionalita VARCHAR(50),
     data_nascita DATE,
-    data_morte DATE
-    nazionalita_id INT
-    FOREIGN KEY (nazionalita_id) REFERENCES nazionalita (id_nazionalità)
-);
-
---Creare la tabella delle nazionalita
-CREATE TABLE IF NOT EXTSTS nazionalita (
-id_nazionalita INT AUTO INCREMENT PRIMARY KEY;
-nome_nazionalita VARCHAR (50) NOT NULL
+    data_morte DATE,
+    nazionalita_id INT,
+    FOREIGN KEY (nazionalita_id) REFERENCES nazionalita (id_nazionalita)
 );
 
 INSERT INTO nazionalita (nome_nazionalita) 
@@ -22,14 +22,15 @@ VALUES
     ('Italiano'),
     ('Spagnolo'),
     ('Inglese'),
+    ('Americano'),
     ('Cinese');
 
 -- Inserire alcuni dati nella tabella degli autori
 INSERT INTO autori (nome_autore, nazionalita_id, data_nascita, data_morte)
 VALUES
-    ('Jane Austen', 'Inglese', '1775-12-16', '1817-07-18'),
-    ('George Orwell', 'Inglese', '1903-06-25', '1950-01-21'),
-    ('Harper Lee', 'Americana', '1926-04-28', '2016-02-19');
+    ('Jane Austen', '3', '1775-12-16', '1817-07-18'),
+    ('George Orwell', '3', '1903-06-25', '1950-01-21'),
+    ('Harper Lee', '4', '1926-04-28', '2016-02-19');
 
 -- Verifico il corretto inserimento dei dati
 SELECT * FROM autori;
