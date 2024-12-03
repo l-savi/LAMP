@@ -64,8 +64,8 @@ INSERT INTO Registi (Nome, Cognome) VALUES
 ('Martin', 'Scorsese');
 
 INSERT INTO Generi (Nome) VALUES
-("Fantascienza'),
-('Azione"),
+('Fantascienza'),
+('Azione'),
 ('Romantico');
 
 INSERT INTO Film (Titolo, Durata, Anno Uscita, ID_Regista, ID_Genere) VALUES
