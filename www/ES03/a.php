@@ -1,41 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Raccolta dati dal form
-    $nome = filter_input(INPUT_POST, 'nome');
-    $cognome = filter_input(INPUT_POST, 'cognome');
-    $data_nascita = $_POST['data_nascita'];
-    $codice_fiscale = filter_input(INPUT_POST, 'codice_fiscale');
-    $email = filter_input(INPUT_POST, 'email');
-    $cellulare = filter_input(INPUT_POST, 'cellulare');
-    $indirizzo = filter_input(INPUT_POST, 'indirizzo');
-    $nickname = filter_input(INPUT_POST, 'nickname');
-    $password = $_POST['password'];
-
-    // Validazione aggiuntiva nickname
-    if ($nickname === $nome || $nickname === $cognome) {
-        echo "Il nickname non può essere uguale al nome o al cognome.";
-        exit;
-    }
-
-    // Validazione password
-    if (!preg_match("/(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}/", $password)) {
-        echo "La password deve contenere almeno una maiuscola, un numero e un carattere speciale.";
-        exit;
-    }
-
-    // Controllo e memorizzazione dati
-    echo "Dati ricevuti:<br>";
-    echo "Nome: $nome<br>";
-    echo "Cognome: $cognome<br>";
-    echo "Data di nascita: $data_nascita<br>";
-    echo "Codice Fiscale: $codice_fiscale<br>";
-    echo "Email: $email<br>";
-    echo "Cellulare: $cellulare<br>";
-    echo "Indirizzo: $indirizzo<br>";
-    echo "Nickname: $nickname<br>";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -45,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h2>Form di Registrazione Utente</h2>
-    <form action="validazione.php" method="POST">
+    <form action="es03a1.php" method="POST">
         <!-- Nome -->
         <label for="nome">Nome*:</label>
         <input type="text" id="nome" name="nome" pattern="[A-Za-zÀ-ÿ\s]+" required>
@@ -72,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br><br>
 
         <!-- Cellulare -->
-        <label for="cellulare">Cellulare:</label>
-        <input type="tel" id="cellulare" name="cellulare" >
+        <label for="cellulare">Cellulare (12 cifre):</label>
+        <input type="tel" id="cellulare" name="cellulare" pattern="[0-9]{12}">
         <br><br>
 
         <!-- Via -->
@@ -88,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          <!-- Comune -->
          <label for="Comune">Comune*:</label>
-        <input type="text" id="Comune" name="Comune" required>
+        <input type="text" id="comune" name="comune" required>
         <br><br>
 
          <!-- Provincia -->
