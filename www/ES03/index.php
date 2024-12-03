@@ -30,7 +30,7 @@
         <h3>Indirizzo</h3>
         <br>
         <label for="via">Via*:</label>
-        <input type="text" name="via" pattern="[a-zA-Z']+" required>
+        <input type="text" name="via" required>
         <label for="nCivico">N. Civico*:</label>
         <input type="text" name="nCivico" pattern="[0-9]+" required>
         <br>
