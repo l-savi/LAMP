@@ -23,18 +23,4 @@ if($username=="Leo" && $password=="21") {
 </body>
 </html>
 
-  <form action="accesso_get.php" method="GET">
 
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <br>
-
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br>
-        <input type="submit" value="Accedi">
-        <input type="reset" value="Annulla">
-
-    </form>
-</body>
-</html>
