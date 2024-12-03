@@ -19,13 +19,13 @@
         <input type="date" name="data" required>
         <br>
         <label for="codice_fiscale">Codice fiscale</label>
-        <input type="text" name="codice_fiscale" pattern="[a-zA-Z0-9]{16}" style="text-transform:uppercase">
+        <input type="text" name="codice_fiscale" >
         <br>
         <label for="email">Email*:</label>
         <input type="email" name="email" required>
         <br>
-        <label for="tel">Numero cellulare (con prefisso):</label>
-        <input type="tel" name="tel" pattern="[0-9]{12}">
+        <label for="tel">Numero cellulare:</label>
+        <input type="tel" name="tel">
         <br>
         <h3>Indirizzo</h3>
         <br>
