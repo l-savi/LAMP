@@ -54,7 +54,7 @@ ID_Ricevuta INT NOT NULL,
 Stato_Pagamento INT NOT NULL,
 FOREIGN KEY (ID_Ricevuta) REFERENCES Ricevute (ID_Ricevuta) ON DELETE NO
 ACTION ON UPDATE CASCADE,
-FOREIGN KEY (Stato_Pagamento) REFERENCES Stato_Pagamenti (ID_Stato) ON DELETE NO
+FOREIGN KEY (Stato_Pagamento) REFERENCES Stati_Pagamenti (ID_Stato) ON DELETE NO
 ACTION ON UPDATE CASCADE
 );
 
@@ -81,7 +81,7 @@ INSERT INTO Clienti (Nome, Cognome, Email) VALUES
 INSERT INTO Ricevute (ID_Film, ID_Cliente, Data_Scandenza) VALUES
 (1, 1, '2024-10-02'),
 (2, 2, '2024-10-28'),
-(3, 4, '2024-10-28');
+(3, 3, '2024-10-28');
   
 INSERT INTO Stati_Pagamenti (Descrizione) VALUES
 ('Pagato'),
