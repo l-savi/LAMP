@@ -77,17 +77,8 @@ INSERT INTO Clienti (Nome, Cognome, Email) VALUES
 ('Giulio', 'Rossi', 'giulio.rossi@gmail.com'),
 ('Giorgio', 'Basso', 'giorgio.basso@gmail.com'),
 ('Sara', 'Verdi', 'sara.verdi21@gmail.com');
-  
-INSERT INTO Ricevute (ID_Film, ID_Cliente, Data_Scandenza) VALUES
-(1, 1, '2024-10-28'),
-(2, 2, '2024-10-28'),
-(3, 3, '2024-10-28');
-  
+
 INSERT INTO Stati_Pagamenti (Descrizione) VALUES
 ('Pagato'),
 ('Non pagato'),
 ('In corso');
-  
-INSERT INTO Pagamenti (Data_Pagamento, Prezzo, Stato_Pagamento) VALUES
-('2024-10-30', 100, 2),
-('NULL', 200, 1);
