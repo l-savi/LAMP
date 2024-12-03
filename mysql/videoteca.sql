@@ -90,4 +90,3 @@ INSERT INTO Pagamenti (Data_Pagamento, Prezzo, ID_Ricevuta, Stato_Pagamento) VAL
 INSERT INTO Stati_Pagamenti (Descrizione) VALUES
 ('Pagato'),
 ('Non pagato'),
-('In corso');
