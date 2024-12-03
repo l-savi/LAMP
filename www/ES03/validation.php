@@ -16,13 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Validation
-$error = '';
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error .= 'Email non valida.<br>';
 }
-if (strpos($username, $nome) || strpos($username, $cognome)) {
-    $error .= 'Username non valido.<br>';
-}
+  if ($username === $nome || $username === $cognome) {
+        echo "L' Username non può essere uguale al nome o al cognome.";
+        exit;
+    }
+
+    // Validation password
+    if (!preg_match("/(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}/", $password)) {
+        echo "La password deve contenere almeno una maiuscola, un numero e un carattere speciale.";
+        exit;
+    }
 
 ?>
 
