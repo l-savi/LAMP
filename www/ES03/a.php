@@ -35,7 +35,7 @@
 
         <!-- Cellulare -->
         <label for="cellulare">Cellulare (12 cifre):</label>
-        <input type="tel" id="cellulare" name="cellulare" pattern="[0-9]{12}">
+        <input type="tel" id="cellulare" name="cellulare" >
         <br><br>
 
         <!-- Via -->
