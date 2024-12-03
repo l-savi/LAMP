@@ -72,8 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <br><br>
 
         <!-- Cellulare -->
-        <label for="cellulare">Cellulare (12 cifre):</label>
-        <input type="tel" id="cellulare" name="cellulare" pattern="[0-9]{12}">
+        <label for="cellulare">Cellulare:</label>
+        <input type="tel" id="cellulare" name="cellulare" >
         <br><br>
 
         <!-- Via -->
