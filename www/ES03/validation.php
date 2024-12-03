@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Validation
-}
+
   if ($username === $nome || $username === $cognome) {
         echo "L' Username non può essere uguale al nome o al cognome.";
         exit;
