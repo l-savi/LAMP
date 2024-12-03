@@ -59,24 +59,27 @@ ACTION ON UPDATE CASCADE
 );
 
 INSERT INTO Registi (Nome, Cognome) VALUES
+('Steven', 'Spielberg'),
+('Quentin', 'Tarantino' ),
+('Martin', 'Scorsese');
 
 INSERT INTO Generi (Nome) VALUES
 ("Fantascienza'),
 ('Azione"),
-('Drammatico');
+('Romantico');
 
 INSERT INTO Film (Titolo, Durata, Anno Uscita, ID_Regista, ID_Genere) VALUES
-(Avatar", •2:42°, 2009, 1, 1),
-("Titanic', "3:15', 1997, 1, 3),
-('Ironman 3', 02:10°, 2013, 2, 2);
+('La dolce vita' ,'2:10', 2021, 3, 3),
+('Taxi Driver' , '1:45', 1997, 1, 3),
+('Via col Vento','3:21', 2013, 2, 2);
 
 INSERT INTO Clienti (Nome, Cognome, Email) VALUES
-('Mario', 'Rossi', 'mario.rossi@gmail.com'),
-('Giorgio', 'Bianchi', 'giorgio.bianchi@gmail.com'),
-('Luigi', "Verdi', "luigi.verdi@gmail.com');
+('Giulio', 'Rossi', 'giulio.rossi@gmail.com'),
+('Giorgio', 'Basso', 'giorgio.basso@gmail.com'),
+('Sara', 'Verdi', 'sara.verdi21@gmail.com');
   
 INSERT INTO Ricevute (ID_Film, ID_Cliente, Data_Scandenza) VALUES
-(1, 1, '2024-10-27'),
+(1, 1, '2024-10-02'),
 (2, 2, '2024-10-28'),
 (3, 4, '2024-10-28');
   
@@ -86,6 +89,5 @@ INSERT INTO Stati_Pagamenti (Descrizione) VALUES
 ('In corso');
   
 INSERT INTO Pagamenti (Data_Pagamento, Prezzo, ID_Ricevuta, Stato_Pagamento) VALUES
-('2024-10-10', 100, 1, 2),
-(NULL. 150, 2, 1),
-(NULL, 200, 3, 1);
+('2024-10-30', 100, 1, 2),
+('NULL', 200, 3, 1);
