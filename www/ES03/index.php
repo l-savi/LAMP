@@ -47,7 +47,7 @@
         <input type="text" name="username" pattern="[a-zA-Z0-9]{3,}" required>
         <br>
         <label for="password">Password*:</label>
-        <input type="password" name="password" pattern="{8,}" required>
+        <input type="password" name="password" pattern="(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}" required>
         
         <br>
         <input type="submit" name="submit">
