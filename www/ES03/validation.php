@@ -1,31 +1,33 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nome = trim($_POST['nome']);
-    $cognome = trim($_POST['cognome']);
-    $dataNascita = trim($_POST['data']);
-    $codice_fiscale = strtoupper(trim($_POST['codice_fiscale']));
-    $email = trim($_POST['email']);
-    $tel = trim($_POST['tel']);
-    $via = trim($_POST['via']);
-    $nCivico = trim($_POST['nCivico']);
-    $cap = trim($_POST['cap']);
-    $comune = trim($_POST['comune']);
-    $provincia = strtoupper(trim($_POST['provincia']));
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Raccolta dati dal form
+    $nome = filter_input(INPUT_POST, 'nome');
+    $cognome = filter_input(INPUT_POST, 'cognome');
+    $data_nascita = $_POST['data_nascita'];
+    $codice_fiscale = filter_input(INPUT_POST, 'codice_fiscale');
+    $email = filter_input(INPUT_POST, 'email');
+    $cellulare = filter_input(INPUT_POST, 'cellulare');
+    $via = filter_input(INPUT_POST, 'via');
+    $CAP = filter_input(INPUT_POST, 'CAP');
+    $comune = filter_input(INPUT_POST, 'comune');
+    $provincia = filter_input(INPUT_POST, 'provincia');
+    $nickname = filter_input(INPUT_POST, 'nickname');
+    $password = $_POST['password'];
 
-// Validation
-$error = '';
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error .= 'Email non valida.<br>';
-}
-if (strpos($username, $nome) || strpos($username, $cognome)) {
-    $error .= 'Username non valido.<br>';
-}
+    // Validazione aggiuntiva nickname
+    if ($nickname === $nome || $nickname === $cognome) {
+        echo "Il nickname non può essere uguale al nome o al cognome.";
+        exit;
+    }
 
+    // Validazione password
+    if (!preg_match("/(?=.*[A-Z])(?=.*\d)(?=.*\W).{8,}/", $password)) {
+        echo "La password deve contenere almeno una maiuscola, un numero e un carattere speciale.";
+        exit;
+    }
+
+}
 ?>
-
 
 
 <!DOCTYPE html>
