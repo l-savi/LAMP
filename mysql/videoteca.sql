@@ -57,3 +57,35 @@ ACTION ON UPDATE CASCADE,
 FOREIGN KEY (Stato_Pagamento) REFERENCES Stato_Pagamenti (ID_Stato) ON DELETE NO
 ACTION ON UPDATE CASCADE
 );
+
+INSERT INTO Registi (Nome, Cognome) VALUES
+
+INSERT INTO Generi (Nome) VALUES
+("Fantascienza'),
+('Azione"),
+('Drammatico');
+
+INSERT INTO Film (Titolo, Durata, Anno Uscita, ID_Regista, ID_Genere) VALUES
+(Avatar", •2:42°, 2009, 1, 1),
+("Titanic', "3:15', 1997, 1, 3),
+('Ironman 3', 02:10°, 2013, 2, 2);
+
+INSERT INTO Clienti (Nome, Cognome, Email) VALUES
+('Mario', 'Rossi', 'mario.rossi@gmail.com'),
+('Giorgio', 'Bianchi', 'giorgio.bianchi@gmail.com'),
+('Luigi', "Verdi', "luigi.verdi@gmail.com');
+  
+INSERT INTO Ricevute (ID_Film, ID_Cliente, Data_Scandenza) VALUES
+(1, 1, '2024-10-27'),
+(2, 2, '2024-10-28'),
+(3, 4, '2024-10-28');
+  
+INSERT INTO Stati_Pagamenti (Descrizione) VALUES
+('Pagato'),
+('Non pagato'),
+('In corso');
+  
+INSERT INTO Pagamenti (Data_Pagamento, Prezzo, ID_Ricevuta, Stato_Pagamento) VALUES
+('2024-10-10', 100, 1, 2),
+(NULL. 150, 2, 1),
+(NULL, 200, 3, 1);
