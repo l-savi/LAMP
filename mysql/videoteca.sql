@@ -50,9 +50,8 @@ Data_Pagamento DATE NOT NULL,
 Prezzo INT NOT NULL,
 ID_Ricevuta INT NOT NULL,
 Stato_Pagamento INT NOT NULL,
-FOREIGN KEY (ID_Ricevuta) REFERENCES Ricevute (ID_Ricevuta),
-FOREIGN KEY (Stato_Pagamento) REFERENCES Stati_Pagamenti (ID_Stato) ON DELETE NO
-ACTION ON UPDATE CASCADE
+FOREIGN KEY (ID_Ricevuta) REFERENCES Ricevute (ID_Ricevuta) ON DELETE NO ACTION ON UPDATE CASCADE,
+FOREIGN KEY (Stato_Pagamento) REFERENCES Stati_Pagamenti (ID_Stato) ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
 INSERT INTO Registi (Nome, Cognome) VALUES
