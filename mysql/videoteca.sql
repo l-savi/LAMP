@@ -83,7 +83,7 @@ INSERT INTO Ricevute (ID_Film, ID_Cliente, Data_Scandenza) VALUES
 
 INSERT INTO Stati_Pagamenti (Descrizione) VALUES
 ('Pagato'),
-('Non pagato'),
+('Non pagato');
 
 INSERT INTO Pagamenti (Data_Pagamento, Prezzo, ID_Ricevuta, Stato_Pagamento) VALUES
 ('2024-10-30', 100, 1, 2),
