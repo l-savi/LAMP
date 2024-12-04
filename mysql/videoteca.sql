@@ -69,7 +69,7 @@ INSERT INTO Generi (Nome) VALUES
 ('Romantico');
 
 INSERT INTO Film (Titolo, Durata, Anno_Uscita, ID_Regista, ID_Genere) VALUES
-('La dolce vita' ,'2:10', 2021, 3, 3),
+('La dolce vita' , '2:10', 2021, 3, 3),
 ('Taxi Driver' , '1:45', 1997, 1, 3),
 ('Via col Vento','3:21', 2013, 2, 2);
 
