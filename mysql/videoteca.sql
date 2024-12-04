@@ -84,5 +84,5 @@ INSERT INTO Stati_Pagamenti (Descrizione) VALUES
 ('Non pagato');
 
 INSERT INTO Pagamenti (Data_Pagamento, Prezzo, ID_Ricevuta, Stato_Pagamento) VALUES
-('2024-10-30', 100, 3, 3),
-('NULL', 200, 1, 2);
+('2024-10-30', 100, 1, 1),
+('NULL', 200, 2, 2);
