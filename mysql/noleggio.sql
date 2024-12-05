@@ -7,17 +7,18 @@ CREATE TABLE Clienti (
     cognome VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     telefono VARCHAR(15),
-    data_registrazione DATE DEFAULT CURRENT_DATE
+    data_registrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Veicoli (
     veicolo_id INT AUTO_INCREMENT PRIMARY KEY,
     modello VARCHAR(50) NOT NULL,
     marca VARCHAR(50) NOT NULL,
-    anno INT CHECK (anno >= 2000 AND anno <= YEAR(CURDATE())),
+    anno INT CHECK (anno >= 2000 AND anno <= 2024),
     targa VARCHAR(15) UNIQUE NOT NULL,
     prezzo_giornaliero DECIMAL(10, 2) NOT NULL
 );
+
 
 CREATE TABLE Noleggi (
     noleggio_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,6 +39,7 @@ CREATE TABLE Pagamenti (
     metodo_pagamento ENUM('Carta', 'Bonifico', 'Contanti') NOT NULL,
     FOREIGN KEY (noleggio_id) REFERENCES Noleggi(noleggio_id) ON DELETE CASCADE
 );
+
 
 INSERT INTO Clienti (nome, cognome, email, telefono)
 VALUES 
@@ -67,35 +69,9 @@ VALUES
     ('Anna', 'Bianchi', '3349876543'),
     ('Luca', 'Verdi', '3355678901');
 
-    INSERT INTO Clienti (nome, cognome, email, telefono)
-VALUES 
-    ('Mario', 'Rossi', 'mario.rossi@email.com', '3331234567'),
-    ('Anna', 'Bianchi', 'mario.rossi@email.com', '3349876543'),
-    ('Luca', 'Verdi', 'luca.verdi@email.com', '3355678901');
 
-        INSERT INTO Veicoli (modello, marca, anno, targa, prezzo_giornaliero)
-VALUES 
-    ('Panda', 'Fiat', 2020, 'AB123CD', 30.00),
-    ('Golf', 'Volkswagen', 2019,  'AB123CD', 45.00),
-    ('Civic', 'Honda', 2021, 'IJ789KL', 50.00);
-
-        INSERT INTO Veicoli (modello, marca, anno, targa, prezzo_giornaliero)
-VALUES 
-    ('Panda', 'Fiat', 1990, 'AB123CD', 30.00),
-    ('Golf', 'Volkswagen', 1995, 'EF456GH', 45.00),
-    ('Civic', 'Honda', 2021, 'IJ789KL', 50.00);
-
-        INSERT INTO Noleggi (cliente_id, veicolo_id, data_inizio, data_fine, totale)
-VALUES 
-    (1, 1, '2024-11-01', '2024-11-05', -21.00),
-    (2, 2, '2024-11-10', '2024-11-12', 90.00);
-
-        INSERT INTO Noleggi (cliente_id, veicolo_id, data_inizio, data_fine, totale)
-VALUES 
-    (4, 1, '2024-11-01', '2024-11-05', 120.00),
-    (2, 2, '2024-11-10', '2024-11-12', 90.00);
-
-            INSERT INTO Noleggi (cliente_id, veicolo_id, data_inizio, data_fine, totale)
-VALUES 
-    ( , 1, '2024-11-01', '2024-11-05', 120.00),
-    (2, 2, '2024-11-10', '2024-11-12', 90.00);
+SELECT * FROM Clienti;
+SELECT * FROM Veicoli;
+SELECT * FROM Noleggi;
+SELECT * FROM Pagamenti;
+    
