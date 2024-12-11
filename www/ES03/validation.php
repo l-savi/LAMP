@@ -38,11 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Validazione</title>
 </head>
 <body>
-    <?php if ($error): ?>
-        <div style="color: red;">
-            <?php echo $error ?>
-        </div>
-    <?php else: ?>
+
         <h2>Dati validati con successo!</h2>
         <ul>
             <li>Nome: <?php echo $nome ?></li>
@@ -55,6 +51,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <li>Username: <?php echo $username ?></li>
             <li>Password: <?php echo $password ?></li>
     </ul>
-    <?php endif; ?>
 </body>
 </html>
