@@ -28,7 +28,7 @@ CREATE TABLE Noleggi (
     data_fine DATE NOT NULL,
     totale DECIMAL(10, 2) NOT NULL CHECK (totale > 0),
     FOREIGN KEY (cliente_id) REFERENCES Clienti(cliente_id) ON DELETE CASCADE,
-    FOREIGN KEY (veicolo_id) REFERENCES Veicoli(veicolo_id) ON DELETE SET NULL
+    FOREIGN KEY (veicolo_id) REFERENCES Veicoli(veicolo_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Pagamenti (
