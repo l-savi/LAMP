@@ -102,7 +102,7 @@ VALUES
 
 INSERT INTO Noleggi (cliente_id, veicolo_id, data_inizio, data_fine, totale)
 VALUES 
-    (100, 3, '2024-11-15', '2024-11-25', 110.00);
+    (100, 3, '2024-11-15', '2024-11-20', 110.00);
 
 DELETE FROM Clienti WHERE Cliente_id = 1; 
     
