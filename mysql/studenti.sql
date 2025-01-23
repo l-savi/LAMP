@@ -95,11 +95,15 @@ INSERT INTO valutazioni (FK_studenti, FK_materie, voto) VALUES
 (7, 1, 9),
 (7, 2, 9),
 (7, 3, 9),
-(7, 4, 9),
-(7, 5, 9),
-(8, 1, 8),
 (8, 2, 9),
 (8, 3, 9),
 (8, 4, 9),
 (8, 5, 9);
 
+SELECT s.cognome, v.voto
+FROM studenti s, valutazioni v
+WHERE s.matricol = v.FK_studenti;
+
+SELECT max (voto), min (voto), avg (voto);
+FROM 
+WHERE
