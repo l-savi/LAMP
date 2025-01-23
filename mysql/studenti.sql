@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS corso_studi (
 
 INSERT INTO corso_studi(codice, nome_corso)
 VALUES
-    ('liceo aristico'),
+    ('liceo scienze umane'),
     ('liceo scientifico'),
     ('liceo linguistico');
 
@@ -25,9 +25,9 @@ CREATE TABLE IF NOT EXISTS disciplina (
 
 INSERT INTO disciplina(codice, nome_disciplina)
 VALUES
-    ('arte'),
+    ('storia'),
     ('matematica'),
-    ('italiano'),
+    ('scienze'),
     ('inglese');
 
 SELECT * FROM disciplina;
