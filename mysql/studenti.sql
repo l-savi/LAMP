@@ -82,24 +82,7 @@ INSERT INTO valutazioni (FK_studenti, FK_materie, voto) VALUES
 (3, 4, 9),
 (3, 5, 8),
 (4, 1, 9),
-(4, 2, 9),
-(4, 3, 8),
-(4, 4, 9),
-(4, 5, 9),
-(5, 1, 9),
-(5, 2, 9),
-(5, 3, 9),
-(5, 4, 9),
-(5, 5, 9),
-(6, 1, 8),
-(6, 2, 9),
-(6, 3, 8),
-(6, 4, 9),
-(6, 5, 8),
-(8, 2, 9),
-(8, 3, 9),
-(8, 4, 9),
-(8, 5, 9);
+(4, 2, 9);
 
 
 select s.cognome, s.nome, s.data_nascita as 'data di nascita' 
@@ -146,7 +129,3 @@ select COUNT(s.matricola) as "numero studenti maggiorenni"
 from studenti s 
 WHERE YEAR(CURDATE()) - YEAR(s.data_nascita) >= 18;
 
-select s.cognome as 'studenti senza voti' 
-from studenti s 
-LEFT JOIN valutazioni v ON s.matricola = v.FK_studenti 
-WHERE v.voto IS NULL;
