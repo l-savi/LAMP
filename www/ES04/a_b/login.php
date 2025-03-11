@@ -12,7 +12,7 @@ if (isset($_GET['error'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username == 'admin' && $password == 'admin') {
+    if ($username == 'admin' && $password == 'Admin') {
 
         $_SESSION['username'] = $username;
         
