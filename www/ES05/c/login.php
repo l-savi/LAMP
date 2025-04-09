@@ -1,61 +1,71 @@
-<?php
-// File delle funzioni
-include 'functions.php';
+<?php 
 
-// Avvio la sessione php per recuperare dati di sessione
+require 'funzioni.php';
+
 session_start();
+/*
+$utente = $_POST['utente'];
+$password = $_POST['password'];
+echo "Nome utente = $utente<br>";
+echo "Password = $password<br>";
+echo "Sessione utente = ". $_SESSION['utente'] . "<br>";
+echo "REQUEST_METHOD = ". $_SERVER['REQUEST_METHOD'] . "<br>";
+*/
+if (isset($_SESSION['utente'])) {
+    echo "Utente già loggato";
+    $mess = 'Accesso gia effettuato';
+    header('Location: index.php');
 
-$msg = $_GET['error'] ?? '';
+} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $utente = $_POST['utente'];
+    $password = $_POST['password'];
+    //echo $utente;
+    //echo $password;
+    echo "<br>";
 
-if(isset($_SESSION['username'])) {
-    $msg = 'Login già effettuato';
-}
-else if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-    
-    [$loginRetval, $loginRetmsg] = login_check($username, $password);
-    
-    $msg = $loginRetmsg;
-    
-    if($loginRetval) {
-        $_SESSION['username'] = $username; 
+    [$Accessoretval, $Accessomsg] = controllo_login($utente, $password);
 
-        $link = 'Location: ';
-        $link .= $_POST['from'] != null ? $_POST['from'] : 'index.php';
+    $mess = $Accessomsg;
 
-        header($link);
+    if ($Accessomsg) {
+        $_SESSION['utente'] = $utente;
+        echo "$utente";
+
+        $coll = 'Location: index.php';
+        //header('Location: index.php');
+        $coll .= $_POST['from'] != null ? $_POST['from'] : 'index.php';
+
+        //header($coll);
         die();
+        echo "$utente";
     }
-}
-?>
-
-<?php
-//Form di login
-$html_form = <<<FORM
-<form action="$_SERVER[PHP_SELF]" method="post">
-  <label for="nome"> </label><input type="text" name="nome" placeholder="Nome utente" required/><br />
-  <label for="password"> </label><input type="password" name="password" placeholder="Password" required/><br />
-  <input type="submit" value="Login" /><input type="reset" value="Cancel" />
-</form>
-FORM;
-
-// Codice html da visualizzare a seconda dei valori di $from e $retval
-  $html_out = "<p class='error'>$errmsg</p>";
-  $html_out .= $html_form;
-  $html_out .= "Non hai un account? <a href='register.php'>Registrati adesso</a>.<br />";
-  $html_out .= "Hai dimenticato la password? <a href='pwd_reset.php'>Resetta la password</a>.<br />";
-  $html_out .= "<a href='index.php'>Torna alla Home Page</a>.<br />";
+    $collegamento= impostaCollegamento();
+} 
 ?>
 
 
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-  <title>Login</title>
+    <title>Login</title>
 </head>
 <body>
-  <h2>Pagina di login</h2>
-  <?=$html_out?>
+        <h2>Login</h2>
+
+        <?= $mess ?>
+
+        <form action="<?= $_SERVER['PHP_SELF']; ?>" method="POST">
+            
+            <input type="text" name="utente" id="utente" placeholder="utente" pattern=".{3,}" required title="Minimo 3 lettere">
+            <br>
+            
+            <input type="password" name="password" id="password" placeholder="password" pattern=".{3,}" required title="Minimo 3 lettere">
+            <br>
+            <input type="submit" value="Login" id="login-button">
+
+            <input type="hidden" name="from" value="<?= $_GET['from'] ?? null ?>"> 
+        </form>
+            <?= $links ?>
 </body>
 </html>
+
