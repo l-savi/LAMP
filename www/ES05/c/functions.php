@@ -22,14 +22,14 @@ function login($username, $password) {
 
     if ($result) {
         // Controllo se ci sono record        
-        if (mysqli_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {    //controllo se equivale a uno, funzione che fa ritornare num di quante righe controllate 
             return [true, 'Login avvenuto con successo'];
         } else {
             return [false, 'Login sbagliato'];
         }
 
-        // Liberazione dei risultati
-        mysqli_free_result($result);
+        // Reset dei risultati
+        mysqli_free_result($result);                  
     } else {
         return [false, 'Errore: ' . mysqli_error($conn)];
     }
@@ -38,9 +38,9 @@ function login($username, $password) {
     mysqli_close($conn);
   }
 
-  function checkSession()
+  function checkSession()               //Sessione attiva
 {
-    if (isset($_SESSION['username'])) {
+    if (isset($_SESSION['username'])) {         //All'interno di session c'è username
         return [true, 'Sessione attiva'];
     } else {
         return [false, 'Sessione non attiva'];
