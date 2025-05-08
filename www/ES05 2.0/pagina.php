@@ -6,7 +6,8 @@ define('DB_NAME', 'ES05');
 
 $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-if (!$conn) {
+{
+    if (!$conn) {
     $html_out = "Attenzione! Connessione al database fallita." . mysqli_connect_error();
 }
 $html_out = "Connessione al database riuscita.";
@@ -30,7 +31,8 @@ if ($result->num_rows > 0) {
     } else {
         echo "Errore nella registrazione: " . $conn->error;
     }
-}
+
 
 $conn->close();
+}
 ?>
