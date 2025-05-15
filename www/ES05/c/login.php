@@ -21,7 +21,7 @@ if (!$conn) {
 
         if (mysqli_num_rows($result) > 0) {
             $title = "Accesso Riuscito";
-            $html .= "<p>Benvenuto, <strong>$username</strong>!</p>";
+            $html .= "<p>Benvenuto, $username </p>";
         } else {
             $title = "Credenziali Errate";
             $html .= "<p>Nome utente o password errati.</p>";
