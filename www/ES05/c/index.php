@@ -13,13 +13,18 @@ $html_link2 .= '<a href="riservata.php">Pagina Riservata</a>';
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+    <title>Login</title>
 </head>
 <body>
-  <h2>ES05 - Login con PHP e MySql</h2>
-  <p>Benvenuto <?=$utente?>. Questa è la home page del sito.<br />
-  <?=$html_link?><br/>
-  <?=$html_link2?>
-  <!-- Link -->
+    <h2>Accedi</h2>
+    <form method="POST" action="">
+        <label>Username:</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <input type="submit" value="Accedi">
+    </form>
 </body>
 </html>
