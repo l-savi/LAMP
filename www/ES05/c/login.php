@@ -13,39 +13,24 @@ if(isset($_SESSION['username'])) {
 else if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
-    {
-        // Connessione al database
-        $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+  try{
+    [$loginRetval, $loginRetmsg] = login($username, $password);
     
-        if (!$conn) {
-            die("Connessione fallita: " . mysqli_connect_error());
-        }
+    $msg = $loginRetmsg;
     
-        // Query per selezionare tutti i record dalla tabella users
-        $query = "SELECT UserID FROM utente where Username = '$username' and Password = '$password';";
-        
-    
-        // Esecuzione della query
-        $result = mysqli_query($conn, $query);
-    
-        if ($result) {
-            // Controllo se ci sono record        
-            if (mysqli_num_rows($result) > 0) {    //controllo se equivale a uno, funzione che fa ritornare num di quante righe controllate 
-                return [true, 'Login avvenuto con successo'];
-            } else {
-                return [false, 'Login sbagliato'];
-            }
-    
-            // Reset dei risultati
-            mysqli_free_result($result);                  
-        } else {
-            return [false, 'Errore: ' . mysqli_error($conn)];
-        }
-    
-        // Chiusura della connessione
-        mysqli_close($conn);
-      }
-    
+    if($loginRetval) {
+        $_SESSION['username'] = $username; 
+
+        $link = 'Location: ';
+        $link .= $_POST['from'] != null ? $_POST['from'] : 'index.php';
+
+        header($link);
+        die();
+
+    }
+  }catch(Exception $e){
+    $msg = 'Errore durante il login: '. $e->getMessage();
+  }
 }
 ?>
 
