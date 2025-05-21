@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($risultato) > 0) {
         $_SESSION['username'] = $username;
-        header("Location: riservata.php");
+        header("Location: test.php");
     } else {
         echo "Nome utente o password errati.";
     }
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<!-- Form HTML -->
+
 <!DOCTYPE html>
 <html>
 <head>
