@@ -20,6 +20,5 @@ $html_link2 .= '<a href="riservata.php">Pagina Riservata</a>';
   <p>Benvenuto <?=$utente?>. Questa è la home page del sito.<br />
   <?=$html_link?><br/>
   <?=$html_link2?>
-  <!-- Link -->
 </body>
 </html>

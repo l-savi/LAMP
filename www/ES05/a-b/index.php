@@ -6,21 +6,21 @@ define('DB_PASSWORD', 'mia_password');
 define('DB_NAME', 'mia_password');
 $html_out = "";
 try {
-// Connessione al database
-$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+  // Connessione al database
+  $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-// Verifica della connessione
-if (!$conn) {
+  // Verifica della connessione
+  if (!$conn) {
     //die("Connessione fallita: " . mysqli_connect_error());
     $html_out = "Attenzione! Connessione al database fallita." . mysqli_connect_error();
-}
-$html_out = "Connessione al database riuscita.";
-// ... successivamente eseguire le query qui ...
+  }
+  $html_out = "Connessione al database riuscita.";
+  // ... successivamente eseguire le query qui ...
 
-// Chiusura della connessione
-mysqli_close($conn);
+  // Chiusura della connessione
+  mysqli_close($conn);
 } catch (Exception $e) {
-$html_out = "Attenzione! Si è verificata un'eccezione. " . $e->getMessage();
+  $html_out = "Attenzione! Si è verificata un'eccezione. " . $e->getMessage();
 }
 ?>
 <!DOCTYPE html>
